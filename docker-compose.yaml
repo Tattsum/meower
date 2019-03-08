@@ -8,4 +8,7 @@ service:
       POSTGRES_DB: "meower"
       POSTGRES_USER: "meower"
       POSTGRES_PASSWORD: "123456"
-      
+
+  nats:
+    image: "nats-streaming:0.9.2"
+    restart: "always"
