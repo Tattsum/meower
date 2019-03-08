@@ -1,0 +1,11 @@
+version: "3.6"
+
+service:
+  postgres:
+    build: "./postgres"
+    restart: "always"
+    environment:
+      POSTGRES_DB: "meower"
+      POSTGRES_USER: "meower"
+      POSTGRES_PASSWORD: "123456"
+      
