@@ -1,28 +1,28 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="container py-5">
+    <div class="row mb-4">
+      <h1 class="col-12">Meower</h1>
+    </div>
+    <div class="row">
+      <Timeline class="col" />
+      <Search class="col" />
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Timeline from '@/components/Timeline';
+import Search from '@/components/Search';
 export default {
-  name: 'app',
   components: {
-    HelloWorld
-  }
-}
+    Timeline,
+    Search,
+  },
+};
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style lang="scss" scoped>
+.container {
+  max-width: 768px;
 }
 </style>
