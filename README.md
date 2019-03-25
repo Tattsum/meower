@@ -6,3 +6,9 @@
 ```terminal
 $ dep ensure
 ```
+
+# 動作確認
+
+```terminal
+$ docker-compose up -d --build
+$ cd frontend && yarn serve
