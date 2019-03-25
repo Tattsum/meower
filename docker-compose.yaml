@@ -50,3 +50,11 @@ service:
     restart: "always"
   elasticsearch:
     image: 'docker.elastic.co/elasticsearch/elasticsearch:6.2.3'
+  nginx:
+    build: "./nginx"
+    ports:
+      - "8080:80"
+    depends_on:
+      - "meow"
+      - "query"
+      - "pusher"
