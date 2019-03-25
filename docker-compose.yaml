@@ -1,6 +1,42 @@
 version: "3.6"
 
 service:
+  meow:
+    build: "."
+    command: "meow-service"
+    depends_on:
+      - "postgres"
+      - "nats"
+    ports:
+      - "8080"
+    environment:
+      POSTGRES_DB: "meower"
+      POSTGRES_USER: "meower"
+      POSTGRES_PASSWORD: "123456"
+      NATS_ADDRESS: "nats:4222"
+  query:
+    build: "."
+    command: "query-service"
+    depends_on:
+      - "postgres"
+      - "nats"
+    ports:
+      - "8080"
+    environment:
+      POSTGRES_DB: "meower"
+      POSTGRES_USER: "meower"
+      POSTGRES_PASSWORD: "123456"
+      NATS_ADDRESS: "nats:4222"
+      ELASTICSEARCH_ADDRESS: "elasticsearch:9200"
+  pusher:
+    build: "."
+    command: "pusher-service"
+    depends_on:
+      - "nats"
+    ports:
+      - "8080"
+    environment:
+      NATS_ADDRESS: "nats:4222"
   postgres:
     build: "./postgres"
     restart: "always"
