@@ -15,6 +15,10 @@ func SetEventStore(es EventStore) {
 	impl = es
 }
 
+func Close() {
+	impl.Close()
+}
+
 func PublishMeowCreated(meow schema.Meow) error {
 	return impl.PublishMeowCreated(meow)
 }
