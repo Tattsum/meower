@@ -16,6 +16,6 @@ COPY retry retry
 
 RUN go install ./...
 
-FROM alpine:3.7
+FROM alpine:3.24
 WORKDIR /usr/bin
 COPY --form=build /go/bin
